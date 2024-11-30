@@ -1,14 +1,17 @@
-const loadData = async() =>{
-    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`)
-    const data = await res.json()
-    const allPost = await data.posts
-    console.log(allPost)
-    allPost.forEach((post) =>{
-        console.log(post)
-        const allPostContainer = document.getElementById('discussContainer1')
-        const div = document.createElement('div')
-        div.classList = "flex flex-col md:flex-row justify-between gap-5"
-        div.innerHTML = `
+const loadData = async (query) => {
+  const res = await fetch(
+    `https://openapi.programming-hero.com/api/retro-forum/posts${query}`
+  );
+  const data = await res.json();
+  const allPost = data.posts;
+  // console.log(allPost);
+  allPost.forEach((post) => {
+    console.log(post);
+    post.innerHTML = ''
+    const allPostContainer = document.getElementById("discussContainer1");
+    const div = document.createElement("div");
+    div.classList = "flex flex-col md:flex-row justify-between gap-5";
+    div.innerHTML = `
         <div id="discussCardContainer" class="flex-1  flex flex-col md:flex-row justify-between gap-10 my-5 p-10 rounded-3xl bg-gray-200  hover:bg-[#797DFC1A] hover:border-2 hover:border-[#797DFC1A]">
             <div class='max-w-96'>
               <img class="w-52 rounded-lg" src="${post?.image}" alt="">
@@ -39,9 +42,32 @@ const loadData = async() =>{
               </div>
             </div>
           </div>
-        `
-        allPostContainer.appendChild(div)
-    })
+        `;
+    allPostContainer.appendChild(div);
+  });
+};
+// const handleClick = async (id) => {
+//   console.log('cliked')
+//   const res = await fetch(
+//     `https://openapi.programming-hero.com/api/retro-forum/posts`
+//   );
+//   const data = await res.json();
+//   const allPost = data.posts[0];
+//   console.log(allPost);
+//   // allPost.forEach((post) =>{
+//   //   console.log(post)
+//   // })
+// };
+
+
+// handle search
+const handleSearch = () =>{
+  console.log('searched')
+  const searchField = document.getElementById('search-field')
+  const searchText = searchField.value
+  loadData(`?category=${searchText}`)
+  searchField.value = ''
+  console.log(searchText)
 }
 
-loadData();
+loadData('');
