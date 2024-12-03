@@ -5,14 +5,14 @@ const loadData = async (query) => {
   const data = await res.json();
   const allPost = data.posts;
   // console.log(allPost);
+  const allPostContainer = document.getElementById("discussContainer1");
+  allPostContainer.innerHTML = ''
   allPost.forEach((post) => {
     console.log(post);
-    post.innerHTML = ''
-    const allPostContainer = document.getElementById("discussContainer1");
     const div = document.createElement("div");
     div.classList = "flex flex-col md:flex-row justify-between gap-5";
     div.innerHTML = `
-        <div id="discussCardContainer" class="flex-1  flex flex-col md:flex-row justify-between gap-10 my-5 p-10 rounded-3xl bg-gray-200  hover:bg-[#797DFC1A] hover:border-2 hover:border-[#797DFC1A]">
+        <div  id="discussCardContainer" class="flex-1  flex flex-col md:flex-row justify-between gap-10 my-5 p-10 rounded-3xl bg-gray-200  hover:bg-[#797DFC1A] hover:border-2 hover:border-[#797DFC1A]">
             <div class='max-w-96'>
               <img class="w-52 rounded-lg" src="${post?.image}" alt="">
             </div>
@@ -54,15 +54,14 @@ const loadData = async (query) => {
 //   const data = await res.json();
 //   const allPost = data.posts[0];
 //   console.log(allPost);
-//   // allPost.forEach((post) =>{
-//   //   console.log(post)
-//   // })
+//   allPost.forEach((post) =>{
+//     console.log(post.id)
+//   })
 // };
 
 
 // handle search
 const handleSearch = () =>{
-  console.log('searched')
   const searchField = document.getElementById('search-field')
   const searchText = searchField.value
   loadData(`?category=${searchText}`)
