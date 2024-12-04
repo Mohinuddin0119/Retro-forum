@@ -21,12 +21,16 @@ const loadData = async (query) => {
   const allPostContainer = document.getElementById("discussContainer1");
   allPostContainer.innerHTML = ''
   allPost.forEach((post) => {
-    // console.log(post);
+    console.log(post);
     const div = document.createElement("div");
     div.classList = "flex flex-col md:flex-row justify-between gap-5";
     div.innerHTML = `
-        <div onclick ="handleClick('${post?.title}','${post?.view_count}')" id="discussCardContainer" class="flex-1  flex flex-col md:flex-row justify-between gap-10 my-5 p-10 rounded-3xl bg-gray-200  hover:bg-[#797DFC1A] hover:border-2 hover:border-[#797DFC1A]">
-            <div class='max-w-96'>
+        <div onclick ="handleClick('${post?.title}','${post?.view_count}')" id="discussCardContainer" class="flex-1  flex flex-col md:flex-row justify-between items-center gap-10 my-5 p-10 rounded-3xl bg-gray-200  hover:bg-[#797DFC1A] hover:border-2 hover:border-[#797DFC1A]">
+            <div class='max-w-96 relative'>
+              <div class=''>
+                <div id ='red-signal' class="hidden absolute -end-1 -top-1 bg-red-600 rounded-full w-4 h-4"></div>
+                <div id ='green-signal' class="hidden absolute -end-1 -top-1 bg-green-600 rounded-full w-4 h-4"></div>
+              </div>
               <img class="w-52 rounded-lg" src="${post?.image}" alt="">
             </div>
             <div>
@@ -56,8 +60,9 @@ const loadData = async (query) => {
             </div>
           </div>
         `;
-    allPostContainer.appendChild(div);
-  });
+        allPostContainer.appendChild(div);
+        // signal(`${post?.isActive}`)
+      });
 };
 const handleClick = (title,view_count) => {
   // mark signal
@@ -70,7 +75,7 @@ const handleClick = (title,view_count) => {
   let value = parseInt(countValue)
   value = count + value
   value++
-  console.log(value)
+  // console.log(value)
   markCountId.innerText = value;
 
   const discussTotal = document.getElementById('discussTotal')
@@ -98,5 +103,21 @@ const handleSearch = () =>{
   searchField.value = ''
   // console.log(searchText)
 }
+
+// 
+// const signal = (value) =>{
+//   // console.log('signaled',value)
+//   const sotto = 'true'
+//   const redSignal = document.getElementById('red-signal')
+//   // console.log(redSignal)
+//   const greenSignal = document.getElementById('green-signal')
+//   // console.log(greenSignal)
+//   if(value === sotto){
+//     greenSignal.classList.remove('hidden')
+//   }
+//   else{
+//     redSignal.classList.remove('hidden')
+//   }
+// }
 
 loadData('');

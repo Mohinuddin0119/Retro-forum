@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Retro Forum</title>
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
     <!-- use tailwind and daisyui -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css"
@@ -118,17 +119,25 @@
       </section>
       <!-- banner end -->
 
-      <!-- spinner -->
-      <div id="spinner" class="hidden text-center my-10">
-        <span class="loading loading-spinner text-accent w-20"></span>
-      </div>
+      <section>
+        <!-- spinner -->
+        <div id="spinner" class="hidden text-center my-10">
+          <span class="loading loading-spinner text-accent w-20"></span>
+        </div>
 
-      <!-- not found data -->
-      <div id="not-found" class="hidden text-center my-60">
-        <h1 class="text-4xl text-black font-extrabold font-mulish">
-          Not Found Data
-        </h1>
-      </div>
+        <!-- not found data -->
+        <div id="not-found" class="hidden text-center my-60">
+          <h1 class="text-4xl text-black font-extrabold font-mulish">
+            Not Found Data
+          </h1>
+        </div>
+
+        <!-- dot signla -->
+         <div id="dot-signal">
+          <div class="bg-green-600 rounded-full w-2 h-2"></div>
+         </div>
+      </section>
+
       <!-- discuss start -->
       <section class="p-2">
         <h1 class="text-black text-center text-4xl font-extrabold">
@@ -143,24 +152,40 @@
           <div id="discussContainer1" class=""></div>
           <div
             id="discussTotalContainer"
-            class="bg-gray-200 rounded-lg p-5 my-5 max-w-[500px]"
+            class="bg-gray-200 rounded-lg p-5 my-5 max-w-full lg:w-1/2"
           >
-            <div class="flex justify-between">
+            <div class="flex justify-between " >
               <h3 class="text-xl text-black font-bold">Title</h3>
               <div class="flex items-center gap-2">
                 <img id="mark" class="hidden" src="./images/Frame.svg" alt="" />
-                <p class="text-violet-700">Mark as read (<span class="text-black" id="mark-read-count">0</span>)</p>
+                <p class="text-violet-700 font-bold">
+                  Mark as read (<span class="text-black" id="mark-read-count"
+                    >0</span
+                  >)
+                </p>
               </div>
             </div>
-            <div
-              id="discussTotal"
-              class="rounded-lg p-4 bg-white my-2"
-            >
-
-            </div>
+            <div id="discussTotal" class="rounded-lg p-4 bg-white my-2"></div>
           </div>
         </div>
       </section>
+
+      <!-- join forum -->
+       <section class="my-10 p-2">
+        <div class="flex flex-col md:flex-row justify-center items-center gap-5 bg-cover bg-black px-10 py-10 rounded-3xl"
+        style="background-image: url('./images/bgbanner.png');">
+        <div class="space-y-5">
+          <h1 class="text-4xl text-white font-bold">Join Our Forum</h1>
+          <p>Share your favorite opinion and win and wp forum coffee mug! Yes, you can run unit tests and view the results directly within the app. </p>
+          <div>
+            <button class="rounded-full bg-[#797DFC] text-white px-5 py-2">Registered Now</button>
+          </div>
+        </div>
+        <div>
+          <img src="./images/joinforum.png" alt="">
+        </div>
+        </div>
+       </section>
     </main>
     <!-- main end -->
 
