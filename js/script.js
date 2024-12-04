@@ -114,7 +114,7 @@ const loadLatestPosts = async() =>{
     const latestPostContainer = document.getElementById('latestPostContainer')
     const div = document.createElement('div');
     div.innerHTML = `
-    <div class='bg-blue-100 p-5 shadow-lg rounded-3xl border border-red-500'>
+    <div class='bg-blue-100 p-5 shadow-lg rounded-3xl border'>
       <div class="">
         <img class ='rounded-xl' src="${post?.cover_image}" alt="">
       </div>
