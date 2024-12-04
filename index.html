@@ -25,28 +25,30 @@
       }
     </style>
   </head>
-  <body class="font-mulish py-10  bg-white min-h-screen">
+  <body class="font-mulish py-10 bg-white min-h-screen">
     <header class="container mx-auto md:p-5">
       <!-- navbar start -->
       <nav
         class="flex flex-col md:flex-row justify-between items-center text-center"
       >
         <h1 class="text-black font-bold text-4xl">ReTro</h1>
-        <div class="flex flex-col md:flex-row justify-center items-center gap-5 my-3">
-            <!-- icon -->
+        <div
+          class="flex flex-col md:flex-row justify-center items-center gap-5 my-3"
+        >
+          <!-- icon -->
           <div class="flex items-center gap-5">
             <div class="bg-gray-100 rounded-full px-3 py-2" title="home">
-                <span><i class="fa-solid fa-house"></i></span>
-              </div>
-              <div class="bg-gray-100 rounded-full px-3 py-2" title="edit">
-                <span><i class="fa-solid fa-pen"></i></span>
-              </div>
-              <div class="bg-gray-100 rounded-full px-3 py-2" title="add">
-                <span><i class="fa-solid fa-user-plus"></i></span>
-              </div>
-              <div class="bg-gray-100 rounded-full px-3 py-2" title="user">
-                <span><i class="fa-regular fa-flag"></i></span>
-              </div>
+              <span><i class="fa-solid fa-house"></i></span>
+            </div>
+            <div class="bg-gray-100 rounded-full px-3 py-2" title="edit">
+              <span><i class="fa-solid fa-pen"></i></span>
+            </div>
+            <div class="bg-gray-100 rounded-full px-3 py-2" title="add">
+              <span><i class="fa-solid fa-user-plus"></i></span>
+            </div>
+            <div class="bg-gray-100 rounded-full px-3 py-2" title="user">
+              <span><i class="fa-regular fa-flag"></i></span>
+            </div>
           </div>
           <!-- btn -->
           <div class="">
@@ -62,12 +64,14 @@
     </header>
 
     <!-- main start -->
-    <main class="container mx-auto  ">
+    <main class="container mx-auto">
+      
+      
       <!-- banner start -->
       <section class="my-10 p-2">
         <div
-          class="bg-black rounded-3xl bg-center bg-fixed bg-cover bg-no-repeat px-10 py-20 flex flex-col md:flex-row justify-around items-center gap-5"
-          style="background-image: url('./images/bgbanner.png')"
+        class="bg-black rounded-3xl bg-center bg-fixed bg-cover bg-no-repeat px-10 py-20 flex flex-col md:flex-row justify-around items-center gap-5"
+        style="background-image: url('./images/bgbanner.png')"
         >
           <div>
             <h1 class="text-6xl">
@@ -86,7 +90,7 @@
                 placeholder="Search here anything"
               />
               <button
-              onclick="handleSearch()"
+                onclick="handleSearch()"
                 type="submit"
                 class="absolute md:end-24 md:bottom-2 lg:end-32 lg:bottom-2 bg-[#797dfc] px-4 mr-2 py-3 md:px-6 md:py-1 rounded-3xl text-white"
               >
@@ -115,92 +119,56 @@
         </div>
       </section>
       <!-- banner end -->
-       
+
+
+      <!-- spinner -->
+      <div id="spinner" class="hidden text-center my-10">
+        <span class="loading loading-spinner text-accent w-20"></span>
+      </div>
+
+      <!-- not found data -->
+       <div id="not-found" class="hidden text-center my-60">
+        <h1 class="text-4xl text-black font-extrabold font-mulish">Not Found Data</h1>
+       </div>
       <!-- discuss start -->
       <section class="p-2">
-        <h1 class="text-black text-center text-4xl font-extrabold">Let’s Discuss</h1>
-        <p class="text-center my-5 text-gray-400 ">Yes, you can run unit tests and view the results directly within the app. <br> The integrated testing features allow for a streamlined .</p>
+        <h1 class="text-black text-center text-4xl font-extrabold">
+          Let’s Discuss
+        </h1>
+        <p class="text-center my-5 text-gray-400">
+          Yes, you can run unit tests and view the results directly within the
+          app. <br />
+          The integrated testing features allow for a streamlined .
+        </p>
         <div id="discussContainer" class="flex flex-col lg:flex-row gap-5 p-2">
-          <div  id="discussContainer1" class="">
-
-          </div>
-          <div id="discussTotalContainer" class=" bg-gray-200 rounded-lg p-5 my-5 max-w-[500px]">
+          <div id="discussContainer1" class=""></div>
+          <div
+            id="discussTotalContainer"
+            class="bg-gray-200 rounded-lg p-5 my-5 max-w-[500px]"
+          >
             <div class="flex justify-between">
               <h3 class="text-xl text-black font-bold">Title</h3>
               <div class="flex items-center gap-2">
-                <img src="./images/Frame.svg" alt="">
+                <img src="./images/Frame.svg" alt="" />
                 <p>Mark as read(<span>4</span>)</p>
               </div>
             </div>
-            <div class="flex justify-between items-center rounded-lg p-4 bg-white my-2">
-              <h3 class="text-black font-bold w-52">10 Kids Unaware of Their Halloween Costume</h3>
+            <div
+              class="flex justify-between items-center rounded-lg p-4 bg-white my-2"
+            >
+              <h3 class="text-black font-bold w-52">
+                10 Kids Unaware of Their Halloween Costume
+              </h3>
               <div class="flex">
                 <div class="flex items-center gap-2 px-4">
-                  <img src="./images/tabler-icon-eye.svg" alt=""> 1580
+                  <img src="./images/tabler-icon-eye.svg" alt="" /> 1580
                 </div>
               </div>
             </div>
           </div>
         </div>
-       </section>
-       <!-- discuss end -->
-
-       <!-- <section class="p-2"> -->
-        <!-- <h1 class="text-black text-center text-4xl font-extrabold">Let’s Discuss</h1> -->
-        <!-- <p class="text-center my-5 text-gray-400 ">Yes, you can run unit tests and view the results directly within the app. <br> The integrated testing features allow for a streamlined .</p>
-        <div id="discuss-container" class="flex flex-col md:flex-row justify-between gap-5">
-          <div id="discussCardContainer" class="flex-1 flex flex-col lg:flex-row justify-between items-center gap-5 p-5 rounded-3xl bg-gray-200  hover:bg-[#797DFC1A] hover:border-2 hover:border-[#797DFC1A]">
-            card container
-             <div>
-              <img class="" src="./images/joinforum.png" alt="">
-            </div>
-            <div>
-              <div class="flex items-center gap-5 text-black my-2">
-                <p>#Music</p>
-                <p>Author:Awlad</p>
-              </div>
-              <h3 class="text-black text-xl font-bold my-2">10 Kids Unaware of Their Halloween Costume</h3>
-              <p>It’s one thing to subject yourself to ha Halloween costume mishap because, hey that’s your prerogative</p>
-              <p class="border-dashed border my-5"></p>
-              <div class="flex flex-col md:flex-row justify-between items-center gap-5">
-                <div class="flex justify-between items-center">
-                  <div class="flex items-center justify-between gap-2">
-                    <img class=" ml-3" src="./images/message-2.svg" alt="">560
-                  </div>
-                  <div class="flex items-center justify-between gap-2">
-                    <img class=" ml-3" src="./images/tabler-icon-eye.svg" alt="">1560
-                  </div>
-                  <div class="flex items-center justify-between gap-2">
-                    <img class=" ml-3" src="./images/Group 18.svg" alt=""> 5 min
-                  </div>
-                </div>
-                <div class="">
-                  <img class="" src="./images/email 1.svg" alt="">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="discussTotalContainer" class=" bg-gray-200 rounded-lg p-5 my-5 max-w-96">
-            <div class="flex justify-between">
-              <h3 class="text-xl text-black font-bold">Title</h3>
-              <div class="flex items-center gap-2">
-                <img src="./images/Frame.svg" alt="">
-                <p>Mark as read(<span>4</span>)</p>
-              </div>
-            </div>
-            <div class="flex justify-between items-center rounded-lg p-4 bg-white my-2">
-              <h3 class="text-black font-bold w-52">10 Kids Unaware of Their Halloween Costume</h3>
-              <div class="flex">
-                <div class="flex items-center gap-2 px-3">
-                  <img src="./images/tabler-icon-eye.svg" alt=""> 1580
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
-       <!-- </section> -->
-       <!-- discuss end -->
-      </main>
+      </section>
+    </main>
     <!-- main end -->
 
     <footer></footer>

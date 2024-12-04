@@ -1,10 +1,23 @@
 const loadData = async (query) => {
+  const spinner = document.getElementById('spinner')
+  spinner.classList.remove('hidden')
   const res = await fetch(
     `https://openapi.programming-hero.com/api/retro-forum/posts${query}`
   );
   const data = await res.json();
   const allPost = data.posts;
-  // console.log(allPost);
+  // spinner
+  const notFoundId = document.getElementById('not-found')
+  if(allPost.length > 0){
+    spinner.classList.add('hidden')
+    notFoundId.classList.add('hidden')
+  }
+
+  if(!allPost.length){
+    spinner.classList.add('hidden')
+    notFoundId.classList.remove('hidden')
+  }
+
   const allPostContainer = document.getElementById("discussContainer1");
   allPostContainer.innerHTML = ''
   allPost.forEach((post) => {
@@ -66,7 +79,7 @@ const handleSearch = () =>{
   const searchText = searchField.value
   loadData(`?category=${searchText}`)
   searchField.value = ''
-  console.log(searchText)
+  // console.log(searchText)
 }
 
 loadData('');
