@@ -21,11 +21,11 @@ const loadData = async (query) => {
   const allPostContainer = document.getElementById("discussContainer1");
   allPostContainer.innerHTML = ''
   allPost.forEach((post) => {
-    console.log(post);
+    // console.log(post);
     const div = document.createElement("div");
     div.classList = "flex flex-col md:flex-row justify-between gap-5";
     div.innerHTML = `
-        <div  id="discussCardContainer" class="flex-1  flex flex-col md:flex-row justify-between gap-10 my-5 p-10 rounded-3xl bg-gray-200  hover:bg-[#797DFC1A] hover:border-2 hover:border-[#797DFC1A]">
+        <div onclick ="handleClick('${post?.title}','${post?.view_count}')" id="discussCardContainer" class="flex-1  flex flex-col md:flex-row justify-between gap-10 my-5 p-10 rounded-3xl bg-gray-200  hover:bg-[#797DFC1A] hover:border-2 hover:border-[#797DFC1A]">
             <div class='max-w-96'>
               <img class="w-52 rounded-lg" src="${post?.image}" alt="">
             </div>
@@ -59,18 +59,35 @@ const loadData = async (query) => {
     allPostContainer.appendChild(div);
   });
 };
-// const handleClick = async (id) => {
-//   console.log('cliked')
-//   const res = await fetch(
-//     `https://openapi.programming-hero.com/api/retro-forum/posts`
-//   );
-//   const data = await res.json();
-//   const allPost = data.posts[0];
-//   console.log(allPost);
-//   allPost.forEach((post) =>{
-//     console.log(post.id)
-//   })
-// };
+const handleClick = (title,view_count) => {
+  // mark signal
+  const mark = document.getElementById('mark')
+  mark.classList.remove('hidden')
+  // count update
+  let count = 0;
+  let markCountId = document.getElementById('mark-read-count') 
+  let countValue = markCountId.innerText
+  let value = parseInt(countValue)
+  value = count + value
+  value++
+  console.log(value)
+  markCountId.innerText = value;
+
+  const discussTotal = document.getElementById('discussTotal')
+  const div = document.createElement('div')
+  div.classList = 'flex justify-between items-center py-5'
+  div.innerHTML = `
+  <h3 class="text-black font-bold w-52">
+    ${title}
+  </h3>
+  <div class="flex">
+    <div class="flex items-center gap-2 px-4">
+      <img src="./images/tabler-icon-eye.svg" alt="" /> ${view_count}
+    </div>
+  </div>
+  `
+  discussTotal.appendChild(div)
+};
 
 
 // handle search

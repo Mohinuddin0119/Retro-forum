@@ -65,13 +65,11 @@
 
     <!-- main start -->
     <main class="container mx-auto">
-      
-      
       <!-- banner start -->
       <section class="my-10 p-2">
         <div
-        class="bg-black rounded-3xl bg-center bg-fixed bg-cover bg-no-repeat px-10 py-20 flex flex-col md:flex-row justify-around items-center gap-5"
-        style="background-image: url('./images/bgbanner.png')"
+          class="bg-black rounded-3xl bg-center bg-fixed bg-cover bg-no-repeat px-10 py-20 flex flex-col md:flex-row justify-around items-center gap-5"
+          style="background-image: url('./images/bgbanner.png')"
         >
           <div>
             <h1 class="text-6xl">
@@ -120,16 +118,17 @@
       </section>
       <!-- banner end -->
 
-
       <!-- spinner -->
       <div id="spinner" class="hidden text-center my-10">
         <span class="loading loading-spinner text-accent w-20"></span>
       </div>
 
       <!-- not found data -->
-       <div id="not-found" class="hidden text-center my-60">
-        <h1 class="text-4xl text-black font-extrabold font-mulish">Not Found Data</h1>
-       </div>
+      <div id="not-found" class="hidden text-center my-60">
+        <h1 class="text-4xl text-black font-extrabold font-mulish">
+          Not Found Data
+        </h1>
+      </div>
       <!-- discuss start -->
       <section class="p-2">
         <h1 class="text-black text-center text-4xl font-extrabold">
@@ -149,21 +148,15 @@
             <div class="flex justify-between">
               <h3 class="text-xl text-black font-bold">Title</h3>
               <div class="flex items-center gap-2">
-                <img src="./images/Frame.svg" alt="" />
-                <p>Mark as read(<span>4</span>)</p>
+                <img id="mark" class="hidden" src="./images/Frame.svg" alt="" />
+                <p class="text-violet-700">Mark as read (<span class="text-black" id="mark-read-count">0</span>)</p>
               </div>
             </div>
             <div
-              class="flex justify-between items-center rounded-lg p-4 bg-white my-2"
+              id="discussTotal"
+              class="rounded-lg p-4 bg-white my-2"
             >
-              <h3 class="text-black font-bold w-52">
-                10 Kids Unaware of Their Halloween Costume
-              </h3>
-              <div class="flex">
-                <div class="flex items-center gap-2 px-4">
-                  <img src="./images/tabler-icon-eye.svg" alt="" /> 1580
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
