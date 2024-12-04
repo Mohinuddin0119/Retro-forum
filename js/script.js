@@ -28,8 +28,8 @@ const loadData = async (query) => {
         <div onclick ="handleClick(\`${post?.title}\`,'${post?.view_count}')" id="discussCardContainer" class="flex-1  flex flex-col md:flex-row justify-between items-center gap-10 my-5 p-10 rounded-3xl bg-gray-200  hover:bg-[#797DFC1A] hover:border-2 hover:border-[#797DFC1A]">
             <div class='max-w-96 relative'>
               <div class=''>
-                <div id ='red-signal' class="hidden absolute -end-1 -top-1 bg-red-600 rounded-full w-4 h-4"></div>
-                <div id ='green-signal' class="hidden absolute -end-1 -top-1 bg-green-600 rounded-full w-4 h-4"></div>
+                <div id ='red-signal' class="${post?.isActive ? 'absolute' : 'hidden' } absolute -end-1 -top-1 bg-red-600 rounded-full w-4 h-4"></div>
+                <div id ='green-signal' class="${post?.isActive ? 'hidden' : 'absolute' } absolute -end-1 -top-1 bg-green-600 rounded-full w-4 h-4"></div>
               </div>
               <img class="w-52 rounded-lg" src="${post?.image}" alt="">
             </div>
