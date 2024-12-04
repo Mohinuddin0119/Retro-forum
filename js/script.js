@@ -21,7 +21,7 @@ const loadData = async (query) => {
   const allPostContainer = document.getElementById("discussContainer1");
   allPostContainer.innerHTML = ''
   allPost.forEach((post) => {
-    console.log(post);
+    // console.log(post);
     const div = document.createElement("div");
     div.classList = "flex flex-col md:flex-row justify-between gap-5";
     div.innerHTML = `
@@ -61,7 +61,6 @@ const loadData = async (query) => {
           </div>
         `;
         allPostContainer.appendChild(div);
-        signal(`${post?.isActive}`)
       });
 };
 
@@ -105,20 +104,37 @@ const handleSearch = () =>{
   // console.log(searchText)
 }
 
-// 
-const signal = (value) =>{
-  // console.log('signaled',value)
-  const sotto = 'true'
-  const redSignal = document.getElementById('red-signal')
-  // console.log(redSignal)
-  const greenSignal = document.getElementById('green-signal')
-  // console.log(greenSignal)
-  if(value === sotto){
-    greenSignal.classList.remove('hidden')
-  }
-  else{
-    redSignal.classList.remove('hidden')
-  }
+// latest posts fetch
+const loadLatestPosts = async() =>{
+  const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/latest-posts`)
+  const value = await res.json();
+  console.log(value);
+  value.forEach((post) =>{
+    console.log(post)
+    const latestPostContainer = document.getElementById('latestPostContainer')
+    const div = document.createElement('div');
+    div.innerHTML = `
+    <div class='bg-blue-100 p-5 shadow-lg rounded-3xl border border-red-500'>
+      <div class="">
+        <img class ='rounded-xl' src="${post?.cover_image}" alt="">
+      </div>
+      <p class="flex gap-3 text-gray-500 my-3"><span><i class="fa-regular fa-calendar-days"></i></span>${post?.author?.posted_date ? post?.author?.posted_date : 'No date'}</p>
+      <h3 class="my-3 font-bold text-xl">${post?.title}</h3>
+      <p class=" text-gray-500 my-3">${post?.description}</p>
+      <div class="flex items-center gap-3">
+        <div>
+          <img class="w-10 rounded-full" src="${post?.profile_image}" alt="">
+        </div>
+        <div>
+          <h3 class=" font-bold ">${post?.author?.name ? post?.author?.name : 'Unknown'}</h3>
+          <p class=" text-gray-500">${post?.author?.designation ? post?.author?.designation : 'Unknown'}</p>
+        </div>
+      </div>
+    </div>
+    `
+    latestPostContainer.appendChild(div);
+  })
 }
+loadLatestPosts();
 
 loadData('');
