@@ -25,7 +25,7 @@ const loadData = async (query) => {
     const div = document.createElement("div");
     div.classList = "flex flex-col md:flex-row justify-between gap-5";
     div.innerHTML = `
-        <div onclick ="handleClick('${post?.title}','${post?.view_count}')" id="discussCardContainer" class="flex-1  flex flex-col md:flex-row justify-between items-center gap-10 my-5 p-10 rounded-3xl bg-gray-200  hover:bg-[#797DFC1A] hover:border-2 hover:border-[#797DFC1A]">
+        <div onclick ="handleClick(\`${post?.title}\`,'${post?.view_count}')" id="discussCardContainer" class="flex-1  flex flex-col md:flex-row justify-between items-center gap-10 my-5 p-10 rounded-3xl bg-gray-200  hover:bg-[#797DFC1A] hover:border-2 hover:border-[#797DFC1A]">
             <div class='max-w-96 relative'>
               <div class=''>
                 <div id ='red-signal' class="hidden absolute -end-1 -top-1 bg-red-600 rounded-full w-4 h-4"></div>
@@ -61,9 +61,10 @@ const loadData = async (query) => {
           </div>
         `;
         allPostContainer.appendChild(div);
-        // signal(`${post?.isActive}`)
+        signal(`${post?.isActive}`)
       });
 };
+
 const handleClick = (title,view_count) => {
   // mark signal
   const mark = document.getElementById('mark')
@@ -105,19 +106,19 @@ const handleSearch = () =>{
 }
 
 // 
-// const signal = (value) =>{
-//   // console.log('signaled',value)
-//   const sotto = 'true'
-//   const redSignal = document.getElementById('red-signal')
-//   // console.log(redSignal)
-//   const greenSignal = document.getElementById('green-signal')
-//   // console.log(greenSignal)
-//   if(value === sotto){
-//     greenSignal.classList.remove('hidden')
-//   }
-//   else{
-//     redSignal.classList.remove('hidden')
-//   }
-// }
+const signal = (value) =>{
+  // console.log('signaled',value)
+  const sotto = 'true'
+  const redSignal = document.getElementById('red-signal')
+  // console.log(redSignal)
+  const greenSignal = document.getElementById('green-signal')
+  // console.log(greenSignal)
+  if(value === sotto){
+    greenSignal.classList.remove('hidden')
+  }
+  else{
+    redSignal.classList.remove('hidden')
+  }
+}
 
 loadData('');
