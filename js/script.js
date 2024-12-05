@@ -121,7 +121,7 @@ const loadLatestPosts = async() =>{
       <p class="flex gap-3 text-gray-500 my-3"><span><i class="fa-regular fa-calendar-days"></i></span>${post?.author?.posted_date ? post?.author?.posted_date : 'No date'}</p>
       <h3 class="my-3 font-bold text-xl">${post?.title}</h3>
       <p class=" text-gray-500 my-3">${post?.description}</p>
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-3 my-3">
         <div>
           <img class="w-10 rounded-full" src="${post?.profile_image}" alt="">
         </div>
